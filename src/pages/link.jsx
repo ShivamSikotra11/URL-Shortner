@@ -39,7 +39,7 @@ import {
 
 import Location from "../components/Location";
 import DeviceStats from "../components/DeviceStats";
-import {UrlState} from "../context";
+ 
 
 const Link = () => {
   const { user } = UrlState();
