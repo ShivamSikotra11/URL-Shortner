@@ -8,7 +8,7 @@ import { getClicksForUrl } from "../db/apiClicks";
 import { UrlState } from "@/context";
 import useFetch from "@/hooks/use-fetch";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { BarLoader, BeatLoader } from "react-spinners";
+import { BarLoader, BeatLoader, PuffLoader } from "react-spinners";
 import { Button } from "../components/ui/button";
 import { downloadImage } from "@/components/LinkCard";
 import { LinkIcon, Copy, Download, Trash } from "lucide-react";
@@ -37,8 +37,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import Location from "../components/Location"
-import DeviceStats from "../components/DeviceStats"
+import Location from "../components/Location";
+import DeviceStats from "../components/DeviceStats";
 
 const Link = () => {
   const { user } = UrlState();
@@ -121,7 +121,10 @@ const Link = () => {
             <Button variant="ghost" onClick={() => downloadImage(url)}>
               <Download />
             </Button>
-            <Button variant="ghost" onClick={() => fnDelete().then(() => navigate("/dashboard"))}>
+            <Button
+              variant="ghost"
+              onClick={() => fnDelete().then(() => navigate("/dashboard"))}
+            >
               {loadingDelete ? (
                 <BeatLoader size={5} color="white" />
               ) : (
@@ -183,8 +186,9 @@ const Link = () => {
               Statistics
             </CardTitle>
           </CardHeader>
+
           {stats && stats?.length ? (
-            <CardContent className='flex flex-col gap-6' >
+            <CardContent className="flex flex-col gap-6">
               <Card>
                 <CardHeader>
                   <CardTitle>Total Clicks</CardTitle>
@@ -198,13 +202,13 @@ const Link = () => {
               <Location stats={stats} />
               <CardTitle>Device Info</CardTitle>
               <DeviceStats stats={stats} />
-
-
             </CardContent>
           ) : !loadingStats ? (
             "No Statistics yet"
           ) : (
-            "Laoding Statistics"
+            <div className="w-full flex justify-center my-[5rem] ">
+              <PuffLoader size={100} color={"#36d7b7"} />
+            </div>
           )}
         </Card>
       </div>
