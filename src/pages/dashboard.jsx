@@ -18,8 +18,8 @@ import { getUrls } from "../db/apiUrls";
 import { getClicksForUrls } from "../db/apiClicks";
 import { UrlState } from "../context";
 import { useEffect } from "react";
-import LinkCard from "../components/LinkCard"
-import CreateLink from "../components/CreateLink"
+import LinkCard from "../components/LinkCard";
+import CreateLink from "../components/CreateLink";
 
 const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -53,7 +53,6 @@ const Dashboard = () => {
   const filteredUrls = urls?.filter((url) => {
     return url.title.toLowerCase().includes(searchQuery.toLowerCase());
   });
- 
 
   return (
     <div className="flex flex-col gap-8">
@@ -74,7 +73,7 @@ const Dashboard = () => {
             <CardTitle>Total Clicks</CardTitle>
           </CardHeader>
           <CardContent>
-            <p> {clicks?.length} </p>
+            <p> {clicks ? clicks?.length : 0} </p>
           </CardContent>
         </Card>
       </div>
@@ -82,7 +81,7 @@ const Dashboard = () => {
       <div className="flex justify-between">
         <h1 className="text-4xl font-bold">My Links</h1>
         {/* <Button>Create link</Button> */}
-        <CreateLink/>
+        <CreateLink />
       </div>
 
       <div className="relative">
@@ -97,11 +96,11 @@ const Dashboard = () => {
 
       {error && <Error message={error?.message} />}
 
-      {
-        (filteredUrls||[]).map((url,ind)=>{
-          return <LinkCard key={ind} url={url} fetchUrls={fnUrls} />
-        })
-      }
+      {(filteredUrls && filteredUrls.length) ? (filteredUrls || []).map((url, ind) => {
+        return <LinkCard key={ind} url={url} fetchUrls={fnUrls} />;
+      }) :( 
+        <div className="text-2xl mt-[5rem] font-medium text-center">No URLs created</div>
+      )}
     </div>
   );
 };

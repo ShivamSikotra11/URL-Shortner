@@ -91,14 +91,14 @@ const Link = () => {
           <a
             href={`https://trimmr.in/${link}`}
             target="_blank"
-            className="text-3xl sm:text-4xl text-blue-400 font-semibold hover:underline cursor-pointer hover:text-blue-500 overflowWrap"
+            className="text-2xl sm:text-3xl text-blue-400 font-semibold hover:underline cursor-pointer hover:text-blue-500 overflowWrap"
           >
-            https://trimmr.in/{link}
+            https://urltrimmr.vercel.app/{link}
           </a>
           <a
             href={url?.original_url}
             target="_blank"
-            className="flex items-center gap-1 text-3xl sm:text-4xl hover:underline cursor-pointer hover:text-blue-200"
+            className="flex items-center gap-1 text-2xl sm:text-3xl hover:underline cursor-pointer hover:text-blue-200"
           >
             <LinkIcon className="p-1" size={40} />
             <span className="overflowWrap">{url?.original_url}</span>
