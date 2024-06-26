@@ -8,6 +8,7 @@ import { Trash } from "lucide-react";
 import useFetch from "../hooks/use-fetch";
 import { deleteUrl } from "../db/apiUrls";
 import { BeatLoader } from "react-spinners";
+import {UrlState} from "../context";
 
 
 export const downloadImage = async (url) => {
@@ -36,6 +37,7 @@ export const downloadImage = async (url) => {
 
 const LinkCard = ({ url, fetchUrls }) => {
   
+  const {myURL} = UrlState();
 
   const { loading: loadingDelete, fn: fnDelete } = useFetch(deleteUrl, url?.id);
 

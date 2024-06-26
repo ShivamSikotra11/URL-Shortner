@@ -10,7 +10,7 @@ const UrlProvider = ({ children }) => {
   const { data: user, loading, fn: fetchUser } = useFetch(getCurrentUser);
   const isAuthenticated = user?.role === "authenticated";
   const [initialLoading,setInitialLoading] = useState(true);
-  const myURL = "https://url-trimmr.vercel.app/";
+  const myURL = "https://trimrr.netlify.app/";
 
   useEffect(()=>{
     // console.log("User fetched from context");
