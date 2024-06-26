@@ -10,6 +10,7 @@ const UrlProvider = ({ children }) => {
   const { data: user, loading, fn: fetchUser } = useFetch(getCurrentUser);
   const isAuthenticated = user?.role === "authenticated";
   const [initialLoading,setInitialLoading] = useState(true);
+  const myURL = "https://url-trimmr.vercel.app/";
 
   useEffect(()=>{
     // console.log("User fetched from context");
@@ -17,7 +18,7 @@ const UrlProvider = ({ children }) => {
   },[]);
 
   return (
-  <UrlContext.Provider value={{user,fetchUser,initialLoading,loading,isAuthenticated}} >
+  <UrlContext.Provider value={{user,fetchUser,initialLoading,loading,isAuthenticated,myURL}} >
     {children}
   </UrlContext.Provider>
   );

@@ -55,7 +55,7 @@ const LinkCard = ({ url, fetchUrls }) => {
           {url.title}
         </span>
         <span className="text-2xl text-blue-400 font-semibold hover:underline cursor-pointer">
-        https://url-trimmr.vercel.app/{url?.custom_url ? url?.custom_url : url?.short_url}
+        {myURL}{url?.custom_url ? url?.custom_url : url?.short_url}
         </span>
         <span className="flex items-center gap-1 hover:underline cursor-pointer">
           {url?.original_url}
@@ -69,7 +69,7 @@ const LinkCard = ({ url, fetchUrls }) => {
           variant="ghost"
           onClick={() => {
             navigator.clipboard.writeText(
-              `https://trimmr.in/${url?.short_url}`
+              `${myURL}${url?.short_url}`
             );
           }}
         >

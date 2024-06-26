@@ -39,6 +39,7 @@ import {
 
 import Location from "../components/Location";
 import DeviceStats from "../components/DeviceStats";
+import {UrlState} from "../context";
 
 const Link = () => {
   const { user } = UrlState();
@@ -46,6 +47,7 @@ const Link = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 640px)");
+  const {myURL} = UrlState();
 
   const {
     loading,
@@ -89,11 +91,11 @@ const Link = () => {
             {url?.title}{" "}
           </span>
           <a
-            href={`https://url-trimmr.vercel.app/${link}`}
+            href={`${myURL}${link}`}
             target="_blank"
             className="text-2xl sm:text-3xl text-blue-400 font-semibold hover:underline cursor-pointer hover:text-blue-500 overflowWrap"
           >
-            https://url-trimmr.vercel.app/{link}
+            {myURL}{link}
           </a>
           <a
             href={url?.original_url}
@@ -112,7 +114,7 @@ const Link = () => {
               variant="ghost"
               onClick={() =>
                 navigator.clipboard.writeText(
-                  `https://trimmr.in/${url?.short_url}`
+                  `${myURL}${url?.short_url}`
                 )
               }
             >
