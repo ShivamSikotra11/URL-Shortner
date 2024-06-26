@@ -89,7 +89,7 @@ const Link = () => {
             {url?.title}{" "}
           </span>
           <a
-            href={`https://trimmr.in/${link}`}
+            href={`https://url-trimmr.vercel.app/${link}`}
             target="_blank"
             className="text-2xl sm:text-3xl text-blue-400 font-semibold hover:underline cursor-pointer hover:text-blue-500 overflowWrap"
           >
