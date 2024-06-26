@@ -21,6 +21,7 @@ const RedirectLink = () => {
       fnStats();
     }
   }, [loading]);
+  console.log(id);
 
   if (loading || loadingStats) {
     return (
