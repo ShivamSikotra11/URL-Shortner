@@ -9,7 +9,7 @@ import useFetch from "../hooks/use-fetch";
 import { deleteUrl } from "../db/apiUrls";
 import { BeatLoader } from "react-spinners";
 import {UrlState} from "../context";
-
+import "../index.css";
 
 export const downloadImage = async (url) => {
   const imgUrl = url?.qr;
@@ -56,10 +56,10 @@ const LinkCard = ({ url, fetchUrls }) => {
         <span className="text-3xl font-bold hover:underline cursor-pointer">
           {url.title}
         </span>
-        <span className="text-2xl text-blue-400 font-semibold hover:underline cursor-pointer">
+        <span className="text-2xl overflowWrap text-blue-400 font-semibold hover:underline cursor-pointer">
         {myURL}{url?.custom_url ? url?.custom_url : url?.short_url}
         </span>
-        <span className="flex items-center gap-1 hover:underline cursor-pointer">
+        <span className="flex items-center overflowWrap gap-1 hover:underline cursor-pointer">
           {url?.original_url}
         </span>
         <span className="flex items-end font-extralight text-sm flex-1">

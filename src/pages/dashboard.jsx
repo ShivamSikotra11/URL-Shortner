@@ -20,6 +20,7 @@ import { UrlState } from "../context";
 import { useEffect } from "react";
 import LinkCard from "../components/LinkCard";
 import CreateLink from "../components/CreateLink";
+import "../index.css";
 
 const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
